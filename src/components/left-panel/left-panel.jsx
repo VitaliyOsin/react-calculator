@@ -19,7 +19,11 @@ const LeftPanel = ({ onBtn }) => {
       {btns.map((bt, i) => (
         <div key={i} className="numbers">
           {bt.map((b) => (
-            <div key={b} onClick={onBtn}>
+            <div
+              key={b}
+              onClick={onBtn}
+              className={`${b === "AC" ? "ac" : ""}`}
+            >
               {b}
             </div>
           ))}

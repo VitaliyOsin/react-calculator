@@ -10,10 +10,10 @@ export const calc = (num1, num2, oper) => {
     case "-":
       res = (Number(num1) * kf - Number(num2) * kf) / kf;
       break;
-    case "×":
+    case "*":
       res = (Number(num1) * kf * (Number(num2) * kf)) / kf ** 2;
       break;
-    case "÷":
+    case "/":
       if (num2 === "0") {
         res = "E0";
         break;

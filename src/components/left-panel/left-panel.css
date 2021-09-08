@@ -3,16 +3,5 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 316px;
-}
-.numbers {
-  width: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: space-between;
-}
-.numbers div {
-  color: #ccc;
-  font-weight: bold;
+  width: 318px;
 }

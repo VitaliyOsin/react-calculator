@@ -10,7 +10,7 @@ const Calculator = ({ input, equalHandler, onBtn, onOpBtn }) => {
       <Input input={input} />
       <div className="buttons">
         <Operators onOpBtn={onOpBtn} />
-        <div class="bot">
+        <div className="bot">
           <LeftPanel onBtn={onBtn} />
           <div className="equal" onClick={equalHandler}>
             =

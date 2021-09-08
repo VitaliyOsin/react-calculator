@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import Calculator from "./components/calculator";
 import { calc } from "./utils";
+import { opers } from "./utils/lists.js";
 
 function App() {
   const [input, setInput] = useState("0");
@@ -49,12 +50,12 @@ function App() {
     setCommaFlag(true);
     setStartAgain(false);
     if (signFlag) {
-      inputHandler(input + target.textContent);
-      setSign(target.textContent);
+      inputHandler(input + target.dataset.sign);
+      setSign(target.dataset.sign);
     }
   };
 
-  const equalHandler = () => {
+  const equalHandler = useCallback(() => {
     try {
       let arr;
       if (sign) {
@@ -76,7 +77,53 @@ function App() {
       resetHandler();
       return;
     }
-  };
+  }, [input, sign]);
+
+  const handleKeys = useCallback(
+    (e) => {
+      console.log(e.key);
+      const { key } = e;
+      if (Number(key) >= 0 && Number(key) <= 9) {
+        if (input === "0" || startAgain) {
+          inputHandler(key);
+          setStartAgain(false);
+        } else {
+          inputHandler(input + key);
+        }
+      } else if (opers.find((v) => v.value === key)) {
+        setSignFlag(false);
+        setCommaFlag(true);
+        setStartAgain(false);
+        if (signFlag) {
+          inputHandler(input + key);
+          setSign(key);
+        }
+      } else if (key === "Enter" || key === "=") {
+        equalHandler();
+      } else if (key === "Delete") {
+        resetHandler();
+      } else if (key === "Backspace") {
+        console.log("SPLIT: ", input.split(""));
+        setInput((prev) => {
+          prev = prev.split("");
+          prev.pop();
+          return prev.join("");
+        });
+      } else if (key === ".") {
+        if (commaFlag || !startAgain) {
+          inputHandler(input + key);
+        }
+      }
+    },
+    [input, commaFlag, equalHandler, signFlag, startAgain]
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeys);
+    return () => {
+      window.removeEventListener("keydown", handleKeys);
+    };
+  }, [input, handleKeys]);
 
   return (
     <Calculator
