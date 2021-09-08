@@ -1,1 +1,1 @@
-export const opers = ["+", "-", "*", "/"];
+export const opers = ["+", "-", "×", "÷"];

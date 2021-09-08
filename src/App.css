@@ -27,6 +27,7 @@ body {
   border: 1px solid #bbb;
   border-radius: 7px;
   width: 80px;
+  height: 40px;
   text-align: center;
   padding: 10px;
   margin: 20px 4px 10px 0;
@@ -34,7 +35,7 @@ body {
   background-color: #f5b204;
   color: #fff;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 50px;
   transition: border-color 0.2s ease-in-out, background-color 0.2s,
     box-shadow 0.2s;
 }
@@ -50,25 +51,38 @@ body {
   font-weight: bold;
 }
 
+.numbers {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
 .numbers div {
-  display: inline-block;
-  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #777;
   border-radius: 7px;
   width: 80px;
+  height: 40px;
+  font-size: 50px;
   text-align: center;
   padding: 10px;
   margin: 10px 4px 10px 0;
   cursor: pointer;
-  background-color: #f9f9f9;
+  background-color: #5c5242;
   transition: border-color 0.2s ease-in-out, background-color 0.2s,
     box-shadow 0.2s;
 }
 
 .numbers div:hover {
-  background-color: #f1f1f1;
+  background-color: #797062;
   -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  border-color: #bbb;
+  border-color: #797062;
 }
 
 .numbers div:active {
@@ -76,25 +90,31 @@ body {
 }
 
 div.equal {
-  display: inline-block;
-  border: 1px solid #3079ed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #242e3d;
   border-radius: 7px;
-  width: 17%;
+  width: 80px;
+  font-size: 50px;
+  height: 286px;
   text-align: center;
-  padding: 127px 10px;
+  padding: 10px;
   margin: 10px 6px 10px 0;
   vertical-align: top;
   cursor: pointer;
   color: #fff;
-  background-color: #4d90fe;
+  background-color: #4b6794;
   transition: all 0.2s ease-in-out;
+  font-weight: bold;
 }
 
 div.equal:hover {
-  background-color: #307cf9;
+  background-color: #536a91;
   -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-  border-color: #1857bb;
+  border-color: #536a91;
 }
 
 div.equal:active {

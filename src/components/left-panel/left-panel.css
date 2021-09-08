@@ -12,3 +12,7 @@
   align-items: stretch;
   justify-content: space-between;
 }
+.numbers div {
+  color: #ccc;
+  font-weight: bold;
+}
