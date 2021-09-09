@@ -47,7 +47,7 @@ function App() {
   const onOpBtn = (e) => {
     const { target } = e;
     setSignFlag(false);
-    setCommaFlag(true);
+    setCommaFlag(false);
     setStartAgain(false);
     if (signFlag) {
       inputHandler(input + target.dataset.sign);
@@ -67,7 +67,9 @@ function App() {
       }
       const res = calc(arr[0], arr[1], sign);
 
-      res ? setInput(res) : setInput(isNaN(res) ? "Ой!" : res);
+      res
+        ? setInput(res.toString())
+        : setInput(isNaN(res) ? "Ой!" : res.toString());
       setCommaFlag(false);
       setSignFlag(true);
       setStartAgain(true);
@@ -92,7 +94,7 @@ function App() {
         }
       } else if (opers.find((v) => v.value === key)) {
         setSignFlag(false);
-        setCommaFlag(true);
+        //setCommaFlag(true);
         setStartAgain(false);
         if (signFlag) {
           inputHandler(input + key);
@@ -103,8 +105,10 @@ function App() {
       } else if (key === "Delete") {
         resetHandler();
       } else if (key === "Backspace") {
-        console.log("SPLIT: ", input.split(""));
+        //console.log("SPLIT: ", input.split(""));
+        console.log("SPLIT1: ", input);
         setInput((prev) => {
+          console.log("PREV: ", prev);
           prev = prev.split("");
           prev.pop();
           return prev.join("");
