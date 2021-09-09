@@ -2,6 +2,7 @@
   "name": "react-calculator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://vitaliyosin.github.io/react-calculator/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -39,6 +40,5 @@
   },
   "devDependencies": {
     "gh-pages": "^3.2.3"
-  },
-  "homepage": "https://vitaliyosin.github.io/"
+  }
 }
